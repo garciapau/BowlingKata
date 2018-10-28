@@ -18,4 +18,12 @@ public class BowlingGameTest {
         Assert.assertEquals(0, bowlingGame.score());
     }
 
+    @Test
+    public void testWhenAllFiveReturns100() {
+        BowlingGame bowlingGame = new BowlingGame();
+        for (int i = 0; i < 20; i++) {
+            bowlingGame.roll(5);
+        }
+        Assert.assertEquals(100, bowlingGame.score());
+    }
 }
