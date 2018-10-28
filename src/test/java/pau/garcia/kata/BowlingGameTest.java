@@ -25,16 +25,32 @@ public class BowlingGameTest {
     @Test
     public void whenAllFiveReturns100() {
         annotateRolls(20, 5);
-        Assert.assertEquals(100, bowlingGame.score());
+        Assert.assertEquals(145, bowlingGame.score());
     }
 
     @Test
     public void whenOneSpareAndRestZeroShouldReturn10() {
-        bowlingGame.roll(10);
-        annotateRolls(19, 0);
+        bowlingGame.roll(5);
+        bowlingGame.roll(5);
+        annotateRolls(18, 0);
         Assert.assertEquals(10, bowlingGame.score());
     }
 
+    @Test
+    public void whenOneSpareAndRestOneShouldReturn29() {
+        bowlingGame.roll(5);
+        bowlingGame.roll(5);
+        annotateRolls(18, 1);
+        Assert.assertEquals(29, bowlingGame.score());
+    }
+    @Test
+    public void whenOneSpareAndRestOneShouldReturn16() {
+        bowlingGame.roll(5);
+        bowlingGame.roll(5);
+        bowlingGame.roll(3);
+        annotateRolls(18, 0);
+        Assert.assertEquals(16, bowlingGame.score());
+    }
 
     private void annotateRolls(int times, int pinsDown) {
         for (int i = 0; i < times; i++) {
